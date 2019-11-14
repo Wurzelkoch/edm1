@@ -6,10 +6,10 @@
 int main(int argc, char* argv[])
 {
     if (argc > 1) {
-        std::cout << "Lies Grad g1" << std::endl;
+        std::cout << "Lies Graph g1" << std::endl;
         Graph g1(argv[1], Graph::undirected);              // read graph from file
 	g1.print();
-	std::cout << "Lies Grad g2" << std::endl;
+	std::cout << "Lies Graph g2" << std::endl;
         Graph g2(argv[2], Graph::undirected);              // read graph from file
 	g2.print();
 	int success = tip(g1, g2);
