@@ -1,4 +1,5 @@
 // graph.cpp (Implementation of Class Graph)
+// Modified to include parent in Tree
 
 #include <fstream>
 #include <sstream>
@@ -33,6 +34,22 @@ void Graph::add_edge(NodeId tail, NodeId head, double weight)
 void Graph::Node::add_neighbor(Graph::NodeId nodeid, double weight)
 {
     _neighbors.push_back(Graph::Neighbor(nodeid, weight));
+}
+
+const Graph::NodeId & Graph::Node::parent()
+{
+    return _parent;
+}
+
+Graph::NodeId & Graph::Node::set_parent(Graph::NodeId id)
+{
+    _parent = id;
+    return _parent;
+}
+
+void Graph::add_parent(Graph::NodeId child, Graph::NodeId parent)
+{
+    _nodes[child].set_parent(parent);
 }
 
 const std::vector<Graph::Neighbor> & Graph::Node::adjacent_nodes() const

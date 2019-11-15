@@ -1,4 +1,5 @@
 // graph.h (Declaration of Class Graph)
+// Modified to include parent in Tree
 #ifndef GRAPH_H
 #define GRAPH_H
 
@@ -23,8 +24,11 @@ public:
     public:
         void add_neighbor(Graph::NodeId nodeid, double weight);
         const std::vector<Neighbor> & adjacent_nodes() const;
+	const Graph::NodeId & parent();  //for RTIP  --read
+	Graph::NodeId & set_parent(Graph::NodeId); //set
     private:
         std::vector<Neighbor> _neighbors;
+	Graph::NodeId _parent;  //for RTIP
     };
 
     enum DirType {directed, undirected};  // enum defines a type with possible values
@@ -33,6 +37,7 @@ public:
 
     void add_nodes(NodeId num_new_nodes);
     void add_edge(NodeId tail, NodeId head, double weight = 1.0);
+    void add_parent(NodeId child, NodeId parent);
 
     NodeId num_nodes() const;
     const Node & get_node(NodeId) const;

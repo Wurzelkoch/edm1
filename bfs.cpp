@@ -4,7 +4,7 @@
 #include "queue.h"
 using namespace std;
 
-int bfs_height(const Graph & graph, Graph::NodeId start_node, vector<vector<Graph::NodeId>> &h)
+int bfs_height(Graph & graph, Graph::NodeId start_node, vector<vector<Graph::NodeId>> &h)
 {
     std::vector<bool> visited(graph.num_nodes(), false);
     std::vector<int> dist(graph.num_nodes(), -1);
@@ -33,6 +33,7 @@ int bfs_height(const Graph & graph, Graph::NodeId start_node, vector<vector<Grap
             if (not visited[neighbor.id()]) {
                 visited[neighbor.id()] = true;
                 dist[neighbor.id()] = dist[cur_nodeid] + 1;
+		graph.add_parent(neighbor.id(),cur_nodeid);
                 bfs_tree.add_edge(cur_nodeid, neighbor.id());
                 queue.push_back(neighbor.id());
             }
