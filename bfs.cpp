@@ -4,7 +4,7 @@
 #include "queue.h"
 using namespace std;
 
-int bfs_height(const Graph & graph, Graph::NodeId start_node, vector<vector<int>> &h)
+int bfs_height(const Graph & graph, Graph::NodeId start_node, vector<vector<Graph::NodeId>> &h)
 {
     std::vector<bool> visited(graph.num_nodes(), false);
     std::vector<int> dist(graph.num_nodes(), -1);
