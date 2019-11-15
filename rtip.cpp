@@ -10,7 +10,7 @@ int rtip(Graph g1, Graph::NodeId r1, Graph g2, Graph::NodeId r2)
 {
 	const string alphabet = "0123456789abcdefghijklmnopqrstuvwxyz";
 	vector<string> w1,w2;
-	vector<int> dist_r1(g1.num_nodes(),0), dist_r2(g2.num_nodes(),0);
+	vector<vector<int>> dist_r1, dist_r2;
 	w1.resize(g1.num_nodes()); //vorerst leere Wörter
 	w2.resize(g2.num_nodes());
 	int h1,h2;                 //Berechnung der Höhe fehlt noch

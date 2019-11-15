@@ -17,8 +17,11 @@ int bfs_height(const Graph & graph, Graph::NodeId start_node, vector<vector<int>
 
     while (not queue.is_empty()) {
         auto cur_nodeid = queue.pop_front();
-	h[cur_nodeid] =  dist[cur_nodeid];
-	if(dist[cur_nodeid]>height) height = dist[cur_nodeid];
+	if(dist[cur_nodeid]>height){
+	    height = dist[cur_nodeid];
+            h.resize(height);
+	}
+	h[dist[cur_nodeid]].push_back(cur_nodeid);
         for (auto neighbor: graph.get_node(cur_nodeid).adjacent_nodes()) {
             if (not visited[neighbor.id()]) {
                 visited[neighbor.id()] = true;
