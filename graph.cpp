@@ -36,7 +36,7 @@ void Graph::Node::add_neighbor(Graph::NodeId nodeid, double weight)
     _neighbors.push_back(Graph::Neighbor(nodeid, weight));
 }
 
-const Graph::NodeId & Graph::Node::parent()
+const Graph::NodeId & Graph::Node::parent() const
 {
     return _parent;
 }

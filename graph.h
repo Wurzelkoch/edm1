@@ -24,7 +24,7 @@ public:
     public:
         void add_neighbor(Graph::NodeId nodeid, double weight);
         const std::vector<Neighbor> & adjacent_nodes() const;
-	const Graph::NodeId & parent();  //for RTIP  --read
+	const Graph::NodeId & parent() const;  //for RTIP  --read
 	Graph::NodeId & set_parent(Graph::NodeId); //set
     private:
         std::vector<Neighbor> _neighbors;
